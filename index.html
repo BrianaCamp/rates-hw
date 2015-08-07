@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>lets build some rates yo</title>
+
+    <link rel="stylesheet" href="styles.css" media="screen" title="no title" charset="utf-8">
+    <script src="resources/jquery-1.11.3.min.js" charset="utf-8"></script>
+    <script src="resources/handlebars-v3.0.3.js" charset="utf-8"></script>
+    <script src="./main.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <script id="handlebarsTemplate" type="text/x-handlebars-template">
+      <div class="container">
+          <label>Monday: <input /></label>
+          <label>Tuesday: <input /></label>
+          <label>Weds: <input /></label>
+          <label>Thursday: <input /></label>
+          <label>Friday: <input /></label>
+          <label>Saturday: <input /></label>
+          <label>Sunday: <input /></label>
+          <div class="buttonContainer">
+              <button class="removeButton">Remove Rate</button>
+          </div>
+      </div>
+    </script>
+
+    <div class="main"></div>
+    <button id="addButton">Add Rate</button>
+    <button class="saveButton">Save</button>
+  </body>
+</html>
