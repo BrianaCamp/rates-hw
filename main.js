@@ -26,7 +26,6 @@ $('#addButton').on('click', function() {
 
     $("body").on("click",".removeButton", function(evt) {
         $(evt.currentTarget).parents('.container').remove(); // evt.currentTarget is the button thats being clicked, find the parent container and remove it from dom.
-        //(bri)good to know about that! I tried 'this' and it does work, which is what I had tried earlier, but didn't think about traversing the DOM to the parent container. brilliant. which is better to use? this or evt.currentTarget?
     });
 
 // lets start over here. we want to save all the data from the input boxes into an array
@@ -39,9 +38,10 @@ $('#addButton').on('click', function() {
 
         // lets iterate over each input
         $.each(inputs, function(index, input) {
-            // pop quiz: what scope level is this right here?? (bri2.0) scope level 3!
-            results.push( $(input).val() ); // save value into array.
-            //(bri 2.0)Question- why isn't the input that's pushed into the results array the variable inputs? Why is it input? Is it corresponding with the last parameter in the each function? Also why does it have the jquery symbol next to it? 
+            var weekObj = {};
+            var item = $(input).val();
+            weekObj.day = item;
+            results.push( weekObj ); // save value into array.
         });
 
         console.log(results); // output array.
