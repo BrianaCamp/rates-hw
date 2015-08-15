@@ -33,16 +33,25 @@ $('#addButton').on('click', function() {
         // this function runs every time the save button is clicked.
         var results = []; // array to save rate info to.
 
-        //lets grab all the inputs
-        var inputs = $('input');
+        //lets grab all the containers
+        var containers = $('.container');
+
+        $.each(containers, function(index, container) {
+          var week = {};
+          $(container).find('input').each(function(i, input) {
+            week[$(input).data('dayofweek')] = $(input).val();
+          })
+
+          results.push(week);
+        });
 
         // lets iterate over each input
-        $.each(inputs, function(index, input) {
-            var weekObj = {};
-            var item = $(input).val();
-            weekObj.day = item;
-            results.push( weekObj ); // save value into array.
-        });
+        // $.each(inputs, function(index, input) {
+        //     var weekObj = {}; //
+        //     var item = $(input).val();
+        //     weekObj.day = item;
+        //     results.push( weekObj ); // save value into array.
+        // });
 
         console.log(results); // output array.
     });
