@@ -40,18 +40,14 @@ $('#addButton').on('click', function() {
           var week = {};
           $(container).find('input').each(function(i, input) {
             week[$(input).data('dayofweek')] = $(input).val();
-          })
+          });
 
           results.push(week);
         });
 
-        // lets iterate over each input
-        // $.each(inputs, function(index, input) {
-        //     var weekObj = {}; //
-        //     var item = $(input).val();
-        //     weekObj.day = item;
-        //     results.push( weekObj ); // save value into array.
-        // });
+        localStorage.setItem('results', JSON.stringify(results));
+        var retrieveStorage = localStorage.getItem('results');
+        console.log('retrieveStorage: ', JSON.parse(retrieveStorage));
 
         console.log(results); // output array.
     });
