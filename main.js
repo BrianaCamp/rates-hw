@@ -42,6 +42,7 @@ $('#addButton').on('click', function() {
             week[$(input).data('dayofweek')] = $(input).val();
           });
           week.saved = true;
+          $(containers).addClass('savedItem');
           results.push(week);
         });
 
@@ -51,8 +52,8 @@ $('#addButton').on('click', function() {
 
         console.log(results); // output array.
 
-        if(results.saved){
-          $('.saved').append("<p>i'm saved</p>");
+        if(retrieveStorage){
+          $('.saved').append(containers).hasClass('savedItem');
         }
     });
 
